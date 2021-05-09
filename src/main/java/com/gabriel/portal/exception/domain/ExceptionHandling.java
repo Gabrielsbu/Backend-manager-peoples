@@ -5,7 +5,6 @@ import com.gabriel.portal.domain.HttpResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.web.servlet.error.ErrorController;
-import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.BadCredentialsException;
@@ -63,33 +62,28 @@ public class ExceptionHandling implements ErrorController {
 
     @ExceptionHandler(EmailExistException.class)
     public ResponseEntity<HttpResponse> emailExistException(EmailExistException e) {
-        return createHttpResponse(HttpStatus.BAD_REQUEST, e.getMessage().toUpperCase());
+        return createHttpResponse(HttpStatus.BAD_REQUEST, e.getMessage());
     }
 
     @ExceptionHandler(UsernameExistException.class)
     public ResponseEntity<HttpResponse> usernameExistException(UsernameExistException e) {
-        return createHttpResponse(HttpStatus.BAD_REQUEST, e.getMessage().toUpperCase());
+        return createHttpResponse(HttpStatus.BAD_REQUEST, e.getMessage());
     }
 
     @ExceptionHandler(EmailNotFoundException.class)
     public ResponseEntity<HttpResponse> emailNotFoundException(EmailNotFoundException e) {
-        return createHttpResponse(HttpStatus.BAD_REQUEST, e.getMessage().toUpperCase());
-    }
-
-    @ExceptionHandler(UsernameNotFoundException.class)
-    public ResponseEntity<HttpResponse> usernameNotFoundException(UsernameNotFoundException e) {
         return createHttpResponse(HttpStatus.BAD_REQUEST, e.getMessage());
     }
 
-    @ExceptionHandler(NoHandlerFoundException.class)
-    public ResponseEntity<HttpResponse> noHandlerFoundException(NoHandlerFoundException e) {
-        return createHttpResponse(HttpStatus.BAD_REQUEST, "This page was not found");
+    @ExceptionHandler(UserNotFoundException.class)
+    public ResponseEntity<HttpResponse> userNotFoundException(UserNotFoundException e) {
+        return createHttpResponse(HttpStatus.BAD_REQUEST, e.getMessage());
     }
 
     @ExceptionHandler(HttpRequestMethodNotSupportedException.class)
     public ResponseEntity<HttpResponse> methodNotSupportedException(HttpRequestMethodNotSupportedException e) {
         String supportedMethod = Arrays.stream(Objects.requireNonNull(e.getSupportedMethods())).iterator().next();
-        return createHttpResponse(HttpStatus.BAD_REQUEST, supportedMethod);
+        return createHttpResponse(HttpStatus.METHOD_NOT_ALLOWED, supportedMethod);
     }
 
     @ExceptionHandler(Exception.class)
