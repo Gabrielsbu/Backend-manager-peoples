@@ -14,7 +14,6 @@ import java.io.IOException;
 import java.io.OutputStream;
 
 import static com.gabriel.portal.constant.SecurityConstant.ACCESS_DENIED_MESSAGE;
-import static com.gabriel.portal.constant.SecurityConstant.FORBIDDEN_MESSAGE;
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
 @Component
