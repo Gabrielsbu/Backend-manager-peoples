@@ -57,7 +57,7 @@ public class ExceptionHandling implements ErrorController {
 
     @ExceptionHandler(TokenExpiredException.class)
     public ResponseEntity<HttpResponse> tokenExpiredException(TokenExpiredException e) {
-        return createHttpResponse(HttpStatus.UNAUTHORIZED, e.getMessage().toUpperCase());
+        return createHttpResponse(HttpStatus.UNAUTHORIZED, e.getMessage());
     }
 
     @ExceptionHandler(EmailExistException.class)
@@ -116,7 +116,7 @@ public class ExceptionHandling implements ErrorController {
 
     private ResponseEntity<HttpResponse> createHttpResponse(HttpStatus httpStatus, String message) {
         return new ResponseEntity<>(new HttpResponse(
-                httpStatus.value(), httpStatus, httpStatus.getReasonPhrase().toUpperCase(), message.toUpperCase()), httpStatus);
+                httpStatus.value(), httpStatus, httpStatus.getReasonPhrase(), message), httpStatus);
 
     }
 

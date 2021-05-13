@@ -253,7 +253,7 @@ public class UserServiceImpl implements UserService, UserDetailsService {
     public void resetPassword(String email) throws EmailNotFoundException, MessagingException {
         User user = userRepository.findUserByEmail(email);
         if(user == null) {
-            throw new EmailNotFoundException(NO_USER_FOUND_BY_EMAIL + email);
+            throw new EmailNotFoundException("No user found by email " + email);
         }
         String password = generatePassword();
         user.setPassword(passwordEncoder.encode(password));
