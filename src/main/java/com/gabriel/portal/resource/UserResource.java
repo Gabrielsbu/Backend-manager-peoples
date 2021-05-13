@@ -73,7 +73,7 @@ public class UserResource extends ExceptionHandling {
                                            @RequestParam("role") String role,
                                            @RequestParam("isActive") String isActive,
                                            @RequestParam("isNonLocked") String isNonLocked,
-                                           @RequestParam(value = "profileImage", required = false) MultipartFile profileImage ) throws UserNotFoundException, EmailExistException, IOException, UsernameExistException {
+                                           @RequestParam(value = "profileImage", required = false) MultipartFile profileImage ) throws UserNotFoundException, EmailExistException, IOException, UsernameExistException, MessagingException {
 
         User newUser = userService.addNewUser(firstName, lastName, username, email, role,
                 Boolean.parseBoolean(isNonLocked), Boolean.parseBoolean(isActive), profileImage);

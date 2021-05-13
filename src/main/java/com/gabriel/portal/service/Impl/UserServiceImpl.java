@@ -21,6 +21,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
@@ -173,19 +174,19 @@ public class UserServiceImpl implements UserService, UserDetailsService {
     }
 
     @Override
-    public User addNewUser(String firstName, String lastName, String username, String email, String role, boolean isNonLocked, boolean isActive, MultipartFile profileImage) throws UserNotFoundException, EmailExistException, UsernameExistException, IOException {
+    public User addNewUser(String firstName, String lastName, String username, String email, String role, boolean isNonLocked, boolean isActive, MultipartFile profileImage) throws UserNotFoundException, EmailExistException, UsernameExistException, IOException, MessagingException {
         validateNewUsernmameAndEmail(StringUtils.EMPTY, username, email);
 
         User user = new User();
         String password = generatePassword();
-
+        String pass = passwordEncoder.encode(password);
         user.setUserId(generateUserId());
         user.setFirstName(firstName);
         user.setLastName(lastName);
         user.setJoinDate(new Date());
         user.setUsername(username);
         user.setEmail(email);
-        user.setPassword(passwordEncoder.encode(password));
+        user.setPassword(pass);
         user.setActive(isActive);
         user.setNotLocked(isNonLocked);
         user.setRole(getRoleEnumName(role).name());
@@ -193,6 +194,8 @@ public class UserServiceImpl implements UserService, UserDetailsService {
         user.setProfileImageUrl(getTemporaryProfileImageUrl(username));
         userRepository.save(user);
         saveProfileImage(user, profileImage);
+
+        emailService.sendNewPasswordEmail(firstName, password, email);
 
         return user;
     }
