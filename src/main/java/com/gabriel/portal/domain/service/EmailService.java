@@ -1,4 +1,4 @@
-package com.gabriel.portal.service;
+package com.gabriel.portal.domain.service;
 
 import com.sun.mail.smtp.SMTPTransport;
 import org.springframework.stereotype.Service;
@@ -33,7 +33,7 @@ public class EmailService {
         message.setRecipients(TO, InternetAddress.parse(email, false));
         message.setRecipients(CC, InternetAddress.parse(CC_EMAIL, false));
         message.setSubject(EMAIL_SUBJECT);
-        message.setText("Hello" + firstName + ", \n\n Your new Account password is: " + password + "\n\n The Support Team");
+        message.setText("Hello " + firstName + ", \n\n Sua nova senha é : " + password + "\n\n Att. CEO - Gabriel Maia");
         message.setSentDate(new Date());
         message.saveChanges();
         return message;

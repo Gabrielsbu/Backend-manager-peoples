@@ -1,10 +1,10 @@
-package com.gabriel.portal.service;
+package com.gabriel.portal.domain.service;
 
-import com.gabriel.portal.domain.User;
-import com.gabriel.portal.exception.domain.EmailExistException;
-import com.gabriel.portal.exception.domain.EmailNotFoundException;
-import com.gabriel.portal.exception.domain.UserNotFoundException;
-import com.gabriel.portal.exception.domain.UsernameExistException;
+import com.gabriel.portal.domain.entities.User;
+import com.gabriel.portal.domain.exception.EmailExistException;
+import com.gabriel.portal.domain.exception.EmailNotFoundException;
+import com.gabriel.portal.domain.exception.UserNotFoundException;
+import com.gabriel.portal.domain.exception.UsernameExistException;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.mail.MessagingException;

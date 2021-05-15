@@ -1,4 +1,4 @@
-package com.gabriel.portal.service;
+package com.gabriel.portal.domain.service;
 
 import com.google.common.cache.CacheBuilder;
 import com.google.common.cache.CacheLoader;

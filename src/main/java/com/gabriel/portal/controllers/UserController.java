@@ -1,10 +1,10 @@
-package com.gabriel.portal.resource;
+package com.gabriel.portal.controllers;
 
-import com.gabriel.portal.domain.HttpResponse;
-import com.gabriel.portal.domain.User;
-import com.gabriel.portal.domain.UserPrincipal;
-import com.gabriel.portal.exception.domain.*;
-import com.gabriel.portal.service.UserService;
+import com.gabriel.portal.domain.entities.HttpResponse;
+import com.gabriel.portal.domain.entities.User;
+import com.gabriel.portal.domain.entities.UserPrincipal;
+import com.gabriel.portal.domain.exception.*;
+import com.gabriel.portal.domain.service.UserService;
 import com.gabriel.portal.utilities.JWTTokenProvider;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -37,7 +37,7 @@ import static com.gabriel.portal.constant.SecurityConstant.JWT_TOKEN_HEADER;
 @Data
 @RestController
 @RequestMapping(path = { "/", "/user"})
-public class UserResource extends ExceptionHandling {
+public class UserController extends ExceptionHandling {
 
     @Autowired
     private UserService userService;

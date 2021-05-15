@@ -1,16 +1,16 @@
-package com.gabriel.portal.service.Impl;
+package com.gabriel.portal.domain.service.Impl;
 
-import com.gabriel.portal.domain.User;
-import com.gabriel.portal.domain.UserPrincipal;
-import com.gabriel.portal.enumeration.Role;
-import com.gabriel.portal.exception.domain.EmailExistException;
-import com.gabriel.portal.exception.domain.EmailNotFoundException;
-import com.gabriel.portal.exception.domain.UserNotFoundException;
-import com.gabriel.portal.exception.domain.UsernameExistException;
-import com.gabriel.portal.repository.UserRepository;
-import com.gabriel.portal.service.EmailService;
-import com.gabriel.portal.service.LoginAttemptService;
-import com.gabriel.portal.service.UserService;
+import com.gabriel.portal.domain.entities.User;
+import com.gabriel.portal.domain.entities.UserPrincipal;
+import com.gabriel.portal.domain.enums.Role;
+import com.gabriel.portal.domain.exception.EmailExistException;
+import com.gabriel.portal.domain.exception.EmailNotFoundException;
+import com.gabriel.portal.domain.exception.UserNotFoundException;
+import com.gabriel.portal.domain.exception.UsernameExistException;
+import com.gabriel.portal.domain.repository.UserRepository;
+import com.gabriel.portal.domain.service.EmailService;
+import com.gabriel.portal.domain.service.LoginAttemptService;
+import com.gabriel.portal.domain.service.UserService;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
@@ -21,7 +21,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
@@ -29,7 +28,6 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import javax.mail.MessagingException;
 import java.io.IOException;
-import java.nio.file.CopyOption;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -37,8 +35,6 @@ import java.util.Date;
 import java.util.List;
 
 import static com.gabriel.portal.constant.FileConstant.*;
-import static com.gabriel.portal.constant.UserImpl.NO_USER_FOUND_BY_EMAIL;
-import static com.gabriel.portal.constant.UserImpl.NO_USER_FOUND_BY_USERNAME;
 import static java.nio.file.StandardCopyOption.REPLACE_EXISTING;
 
 @Service

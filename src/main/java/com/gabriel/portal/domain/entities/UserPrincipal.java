@@ -1,4 +1,4 @@
-package com.gabriel.portal.domain;
+package com.gabriel.portal.domain.entities;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;

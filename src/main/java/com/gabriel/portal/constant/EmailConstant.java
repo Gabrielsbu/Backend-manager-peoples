@@ -6,7 +6,7 @@ public class EmailConstant {
     public static final String PASSWORD = "tadmg43l";
     public static final String FROM_EMAIL = "gabrielsadb@gmail.com";
     public static final String CC_EMAIL = "";
-    public static final String EMAIL_SUBJECT = "Get Arrays, LLC - New Password";
+    public static final String EMAIL_SUBJECT = "Seja bem-vindo ao Small Business - Veja sua senha";
     public static final String GMAIL_SMTP_SERVER = "smtp.gmail.com";
     public static final String SMTP_HOST = "mail.smtp.host";
     public static final String SMTP_AUTH = "mail.smtp.auth";

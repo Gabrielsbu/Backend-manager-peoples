@@ -1,6 +1,6 @@
-package com.gabriel.portal.repository;
+package com.gabriel.portal.domain.repository;
 
-import com.gabriel.portal.domain.User;
+import com.gabriel.portal.domain.entities.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface UserRepository extends JpaRepository<User, Long> {

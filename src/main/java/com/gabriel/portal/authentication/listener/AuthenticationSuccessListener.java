@@ -1,7 +1,7 @@
-package com.gabriel.portal.listener;
+package com.gabriel.portal.authentication.listener;
 
-import com.gabriel.portal.domain.User;
-import com.gabriel.portal.service.LoginAttemptService;
+import com.gabriel.portal.domain.entities.User;
+import com.gabriel.portal.domain.service.LoginAttemptService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.event.EventListener;
 import org.springframework.security.authentication.event.AuthenticationSuccessEvent;

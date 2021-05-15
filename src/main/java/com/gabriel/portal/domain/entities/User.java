@@ -1,4 +1,4 @@
-package com.gabriel.portal.domain;
+package com.gabriel.portal.domain.entities;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

@@ -1,9 +1,9 @@
-package com.gabriel.portal.configuration;
+package com.gabriel.portal.authentication.configuration;
 
 import com.gabriel.portal.constant.SecurityConstant;
-import com.gabriel.portal.filter.JwtAccessDeniedHandler;
-import com.gabriel.portal.filter.JwtAuthenticationEntryPoint;
-import com.gabriel.portal.filter.JwtAuthorizationFilter;
+import com.gabriel.portal.authentication.filters.JwtAccessDeniedHandler;
+import com.gabriel.portal.authentication.filters.JwtAuthenticationEntryPoint;
+import com.gabriel.portal.authentication.filters.JwtAuthorizationFilter;
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;

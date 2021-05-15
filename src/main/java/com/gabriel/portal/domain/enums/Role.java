@@ -1,4 +1,4 @@
-package com.gabriel.portal.enumeration;
+package com.gabriel.portal.domain.enums;
 
 import static com.gabriel.portal.constant.Authority.*;
 

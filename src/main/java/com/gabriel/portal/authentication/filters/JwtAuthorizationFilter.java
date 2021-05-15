@@ -1,8 +1,7 @@
-package com.gabriel.portal.filter;
+package com.gabriel.portal.authentication.filters;
 
 import static com.gabriel.portal.constant.SecurityConstant.*;
 
-import com.gabriel.portal.constant.SecurityConstant;
 import com.gabriel.portal.utilities.JWTTokenProvider;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;

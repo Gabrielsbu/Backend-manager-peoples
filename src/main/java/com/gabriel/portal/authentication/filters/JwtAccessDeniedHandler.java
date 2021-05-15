@@ -1,7 +1,7 @@
-package com.gabriel.portal.filter;
+package com.gabriel.portal.authentication.filters;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.gabriel.portal.domain.HttpResponse;
+import com.gabriel.portal.domain.entities.HttpResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.web.access.AccessDeniedHandler;
